@@ -30,3 +30,8 @@ jar {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+
+task getDeps(type: Copy) {
+    from configurations.runtime
+    into 'runtime/'
+}
